@@ -1,0 +1,50 @@
+{
+    "name": "mlprimitives.test.add.by_row",
+    "primitive": "mlprimitives.meta.ApplyPrimitive",
+    "produce": {
+        "method": "produce",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "primitive_name": {
+                "type": "str",
+                "default": "mlprimitives.test.add",
+                "description": "primitive to apply"
+            },
+            "keywords": {
+                "type": "str",
+                "default": {"X": "x"},
+                "description": "names of the argument expected by the primitive"
+            },
+            "axis": {
+                "type": "int",
+                "default": 0,
+                "description": "Axis to which the primitive will be applied"
+            },
+            "init_params": {
+                "type": "dict",
+                "default": {},
+                "description": "primitive init_params"
+            }
+        },
+        "tunable": {
+            "k": {
+                "type": "int",
+                "default": 10,
+                "range": [1, 100]
+            }
+        }
+    }
+}

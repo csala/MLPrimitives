@@ -1,0 +1,56 @@
+{
+    "name": "mlprimitives.meta.ApplyPrimitive",
+    "contributors": [
+        "Carles Sala <csala@csail.mit.edu>"
+    ],
+    "classifiers": {
+        "type": "metaprimitive",
+        "subtype": "tabular"
+    },
+    "modalities": [],
+    "primitive": "mlprimitives.meta.ApplyPrimitive",
+    "produce": {
+        "method": "produce",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "unknown": false,
+        "fixed": {
+            "primitive_name": {
+                "type": "str",
+                "description": "primitive to apply"
+            },
+            "keywords": {
+                "type": "str or dict",
+                "default": {"X": "x"},
+                "description": "names of the argument expected by the primitive"
+            },
+            "axis": {
+                "type": "int",
+                "default": 0,
+                "description": "Axis to which the primitive will be applied"
+            },
+            "init_params": {
+                "type": "dict",
+                "default": {},
+                "description": "primitive init_params"
+            },
+            "zip": {
+                "type": "list",
+                "default": [],
+                "description": "List of variables to zip to X"
+            }
+        }
+    }
+}

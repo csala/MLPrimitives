@@ -1,0 +1,23 @@
+{
+    "name": "mlprimitives.test.add",
+    "primitive": "mlprimitives.test.add",
+    "produce": {
+        "args": [
+            {
+                "name": "x"
+            }
+        ],
+        "output": [
+            {
+                "name": "x"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "k": {
+                "type": "int"
+            }
+        }
+    }
+}

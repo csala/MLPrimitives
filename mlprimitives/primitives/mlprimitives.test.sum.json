@@ -1,0 +1,29 @@
+{
+    "name": "mlprimitives.test.sum",
+    "primitive": "mlprimitives.test.sum",
+    "produce": {
+        "args": [
+            {
+                "name": "x"
+            },
+            {
+                "name": "y"
+            },
+            {
+                "name": "z"
+            }
+        ],
+        "output": [
+            {
+                "name": "x"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "k": {
+                "type": "int"
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "name": "mlprimitives.test.sum.by_row",
+    "primitive": "mlprimitives.meta.ApplyPrimitive",
+    "produce": {
+        "method": "produce",
+        "args": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            },
+            {
+                "name": "Y",
+                "type": "ndarray"
+            },
+            {
+                "name": "z",
+                "type": "float"
+            }
+        ],
+        "output": [
+            {
+                "name": "X",
+                "type": "ndarray"
+            }
+        ]
+    },
+    "hyperparameters": {
+        "fixed": {
+            "primitive_name": {
+                "type": "str",
+                "default": "mlprimitives.test.sum",
+                "description": "primitive to apply"
+            },
+            "keywords": {
+                "type": "dict",
+                "default": {
+                    "X": "x",
+                    "Y": "y"
+                },
+                "description": "names of the argument expected by the primitive"
+            },
+            "axis": {
+                "type": "int",
+                "default": 0,
+                "description": "Axis to which the primitive will be applied"
+            },
+            "zip": {
+                "type": "list",
+                "default": ["Y"]
+            }
+        },
+        "tunable": {
+            "k": {
+                "type": "int",
+                "default": 10,
+                "range": [1, 100]
+            }
+        }
+    }
+}
