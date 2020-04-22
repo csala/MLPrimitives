@@ -258,3 +258,40 @@ def cutoff_window_sequences(X, timeseries, window_size, cutoff_time=None, time_i
         output.append(selected.values)
 
     return np.array(output)
+
+
+def simple_rolling_windows(X, window_size, target_size):
+    """Create rolling window sequences from timeseries.
+
+    This is a simplified version of the ``rolling_window_sequences``
+    function which does not require indexes to be extracted
+    beforehand.
+
+    This takes as input a matrix with one or more sequences of
+    data and a window size specification. Then it iterates over the
+    data creating rolling window sequences of the input data, as
+    well as a single array with the indicated number of subsequent
+    data points.
+
+    Args:
+        X (numpy.ndarray or pandas.DataFrame):
+            Sequence of data to be split as rolling windows.
+        window_size (int):
+            Number of data points to include in each window.
+        target_size (int):
+            number of steps ahead to add to the target array.
+    """
+    if isinstance(X, pd.DataFrame):
+        X = X.values
+
+    output = list()
+    targets = list()
+    for start in range(0, len(X) - window_size - target_size + 1):
+        end = start + window_size
+        window = X[start:end]
+        output.append(window)
+
+        target = X[end:end + target_size].T[0]
+        targets.append(target)
+
+    return np.array(output), np.array(targets)
